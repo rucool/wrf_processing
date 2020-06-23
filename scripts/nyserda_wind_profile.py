@@ -48,6 +48,7 @@ def plot_wndsp_profile(data_dict, plt_ttl, save_filepath, hmax=None):
             ax.set_ylabel('Height (m)')
             ax.set_title(plt_ttl)
             ax.set_xlim(0, 30)
+            ax.set_ylim(9, 207)
 
             plt.savefig(save_filepath, dpi=200)
             plt.close()
