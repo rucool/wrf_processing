@@ -2,7 +2,7 @@
 
 """
 Author: Lori Garzio on 6/24/2020
-Last modified: 6/24/2020
+Last modified: 6/30/2020
 Creates hourly averaged wind rose plots for user-defined time ranges and heights from the NYSERDA LiDAR buoys. Data from
 https://oswbuoysny.resourcepanorama.dnvgl.com/download/f67d14ad-07ab-4652-16d2-08d71f257da1
 """

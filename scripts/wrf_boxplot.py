@@ -2,7 +2,7 @@
 
 """
 Author: Lori Garzio on 6/18/2020
-Last modified: 6/18/2020
+Last modified: 6/30/2020
 Creates box plots of wind speeds at each hour of the day from June 2019 - May 2020 at user-defined heights at two
 locations: 1) NYSERDA North LiDAR buoy and 2) NYSERDA South LiDAR buoy. The box limits extend from the lower to upper
 quartiles, with a line at the median and a diamond symbol at the mean. Whiskers extend from the box to show the

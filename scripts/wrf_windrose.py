@@ -2,7 +2,7 @@
 
 """
 Author: Lori Garzio on 6/16/2020
-Last modified: 6/16/2020
+Last modified: 6/30/2020
 Creates wind rose plots for user-defined time ranges and heights at two locations: 1) NYSERDA North LiDAR buoy and
 2) NYSERDA South LiDAR buoy.
 
