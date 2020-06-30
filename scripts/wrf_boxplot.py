@@ -91,7 +91,7 @@ def plot_boxplot(data_dict, plt_ttl1, plt_ttl2, save_file):
         box = ax.boxplot(bplot, patch_artist=True, labels=list(data_dict.keys()), showmeans=True,
                          medianprops=medianprops, meanprops=meanpointprops, boxprops=boxprops)
 
-        ax.set_xlabel('Hour of Day')
+        ax.set_xlabel('Hour of Day (GMT)')
 
         if ps == 'ws':
             ax.set_ylabel('Wind Speed (m/s)')
@@ -209,5 +209,5 @@ if __name__ == '__main__':
     sDir = '/home/lgarzio/rucool/bpu/wrf/boxplot'  # on server
     #sDir = '/Users/lgarzio/Documents/rucool/bpu/wrf/boxplot'
     division = ['year']  # ['year', 'quarter']
-    wsheights = [10, 160]
+    wsheights = [160]  # [10, 160]
     main(wrf_dir, sDir, division, wsheights)
