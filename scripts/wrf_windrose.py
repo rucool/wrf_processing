@@ -192,7 +192,8 @@ def main(wrf_rawdir, save_dir, yrs, divs, heights):
                     elif 'south' in loc:
                         buoy = 'NYSERDA South'
                         buoy_code = 'NYSE06'
-                    ttl = 'RU-WRF 4.1: {}m Wind Rose at {}\n{}'.format(str(height), buoy, date_div)
+                    n = np.count_nonzero(~np.isnan(da['ws']))
+                    ttl = 'RU-WRF 4.1: {}m Wind Rose at {}\n{}, n = {}'.format(str(height), buoy, date_div, n)
 
                     # plot wind rose
                     sf = 'WRF_windrose_{}_{}.png'.format(buoy_code, sdiv)

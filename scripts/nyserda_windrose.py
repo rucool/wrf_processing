@@ -142,7 +142,9 @@ def main(nys_dir, yrs, divs, heights):
 
                                 t0_datastr = t0_data.strftime('%Y-%m-%d')
                                 t1_datastr = t1_data.strftime('%Y-%m-%d')
-                                ttl = '{} {}m Wind Rose\n{} to {}'.format(item['name'], str(height), t0_datastr, t1_datastr)
+                                n = np.count_nonzero(~np.isnan(data['ws']))
+                                ttl = '{} {}m Wind Rose\n{} to {}, n = {}'.format(item['name'], str(height),
+                                                                                t0_datastr, t1_datastr, n)
 
                                 t0_save_str = t0_data.strftime('%Y%m')
                                 print('Plotting {}'.format(t0_save_str))
