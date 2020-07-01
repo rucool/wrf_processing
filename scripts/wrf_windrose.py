@@ -92,7 +92,7 @@ def plot_windrose(data_dict, plt_ttl, save_filepath):
     b = [0, 5, 10, 15, 20, 25, 30]
     # ax.bar(wd, data_dict['ws'], normed=True, bins=b, opening=1, edgecolor='black', colors=ccodes, nsector=36)
     # ax.bar(wd, data_dict['ws'], normed=True, opening=1, edgecolor='black', cmap=cm.viridis, nsector=36)
-    ax.bar(wd, data_dict['ws'], normed=True, opening=1, edgecolor='black', cmap=cm.jet, nsector=36)
+    ax.bar(wd, data_dict['ws'], normed=True, bins=b, opening=1, edgecolor='black', cmap=cm.jet, nsector=36)
 
     # add % to y-axis labels
     newticks = ['{:.0%}'.format(x/100) for x in ax.get_yticks()]
@@ -202,12 +202,12 @@ def main(wrf_rawdir, save_dir, yrs, divs, heights):
 
 
 if __name__ == '__main__':
-    # wrf_dir = '/home/coolgroup/ru-wrf/real-time/v4.1_parallel/processed/3km'  # on server
+    wrf_dir = '/home/coolgroup/ru-wrf/real-time/v4.1_parallel/processed/3km'  # on server
     # wrf_dir = '/Volumes/boardwalk/coolgroup/ru-wrf/real-time/v4.1_parallel/processed/3km'
-    wrf_dir = '/Users/lgarzio/Documents/rucool/bpu/wrf/website_plots_redo/processed/3km'
-    # sDir = '/home/lgarzio/rucool/bpu/wrf/windrose'  # on server
-    sDir = '/Users/lgarzio/Documents/rucool/bpu/wrf/windrose'
-    years = ['2019']
+    # wrf_dir = '/Users/lgarzio/Documents/rucool/bpu/wrf/website_plots_redo/processed/3km'
+    sDir = '/home/lgarzio/rucool/bpu/wrf/windrose'  # on server
+    # sDir = '/Users/lgarzio/Documents/rucool/bpu/wrf/windrose'
+    years = ['2019', '2020']
     division = 'monthly'
     wsheights = [160]
     main(wrf_dir, sDir, years, division, wsheights)
