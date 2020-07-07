@@ -17,6 +17,7 @@ import numpy as np
 import os
 import pandas as pd
 import xarray as xr
+from calendar import monthrange
 import matplotlib.pyplot as plt
 import matplotlib.cm as cm
 from windrose import WindroseAxes
@@ -157,11 +158,12 @@ def main(wrf_rawdir, save_dir, yrs, divs, heights):
 
     if divs == 'monthly':
         div = list(range(1, 13))
-        #div = [1]  ##### for testing
+        # div = [1]  ##### for testing
 
     for height in heights:
         for yr in yrs:
             for d in div:
+                month_hrs = monthrange(int(yr), d)[1] * 24
                 # initialize empty dictionaries for each buoy location
                 data = dict()
                 for key in list(nyserda_buoys.keys()):
@@ -193,7 +195,7 @@ def main(wrf_rawdir, save_dir, yrs, divs, heights):
                         buoy = 'NYSERDA South'
                         buoy_code = 'NYSE06'
                     n = np.count_nonzero(~np.isnan(da['ws']))
-                    ttl = 'RU-WRF 4.1: {}m Wind Rose at {}\n{}, n = {}'.format(str(height), buoy, date_div, n)
+                    ttl = 'RU-WRF 4.1: {}m Wind Rose at {}\n{}, hrs = {} (month hrs = {})'.format(str(height), buoy, date_div, n, month_hrs)
 
                     # plot wind rose
                     sf = 'WRF_windrose_{}_{}.png'.format(buoy_code, sdiv)

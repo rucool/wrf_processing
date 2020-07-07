@@ -11,6 +11,7 @@ import datetime as dt
 import numpy as np
 import os
 import pandas as pd
+from calendar import monthrange
 import matplotlib.pyplot as plt
 import matplotlib.cm as cm
 from windrose import WindroseAxes
@@ -115,6 +116,9 @@ def main(nys_dir, yrs, divs, heights):
                         t0_dt = pd.to_datetime(t0)
                         t1_dt = pd.to_datetime(t1)
 
+                        if divs == 'monthly':
+                            month_hrs = monthrange(t0_dt.year, t0_dt.month)[1] * 24
+
                         if t1_dt > t0_dt:
                             # check if there are any data for the month before moving to hourly averages
                             ds_check = ds[(t0_dt <= ds['timestamp']) & (ds['timestamp'] <= t1_dt + dt.timedelta(days=1))]
@@ -143,8 +147,8 @@ def main(nys_dir, yrs, divs, heights):
                                 t0_datastr = t0_data.strftime('%Y-%m-%d')
                                 t1_datastr = t1_data.strftime('%Y-%m-%d')
                                 n = np.count_nonzero(~np.isnan(data['ws']))
-                                ttl = '{} {}m Wind Rose\n{} to {}, n = {}'.format(item['name'], str(height),
-                                                                                t0_datastr, t1_datastr, n)
+                                ttl = '{} {}m Wind Rose\n{} to {}, hrs = {} (month hrs = {})'.format(item['name'], str(height),
+                                                                                t0_datastr, t1_datastr, n, month_hrs)
 
                                 t0_save_str = t0_data.strftime('%Y%m')
                                 print('Plotting {}'.format(t0_save_str))
